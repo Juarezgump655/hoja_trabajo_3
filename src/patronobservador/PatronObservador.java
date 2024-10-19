@@ -5,6 +5,11 @@
  */
 package patronobservador;
 
+import decorador.Bebida;
+import decorador.Cocoa;
+import decorador.CremaChantilli;
+import decorador.Espresso;
+import decorador.HouseLend;
 import observadores.EstacionClimna;
 import observadores.Insivumeh;
 import observadores.SmartPhone;
@@ -19,11 +24,24 @@ public class PatronObservador {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-        EstacionClimna estacionClimna = new EstacionClimna();
+       /* EstacionClimna estacionClimna = new EstacionClimna();
         SmartPhone smartPhone = new SmartPhone(estacionClimna);
         estacionClimna.setMediciones(60, 42, 23);
         Insivumeh insivumeh = new Insivumeh(estacionClimna);
-        estacionClimna.setMediciones(22, 65, 18);
+        estacionClimna.setMediciones(22, 65, 18);*/
+       
+        Bebida houseBlend = new  HouseLend();
+        System.out.println(houseBlend.getDescripcion() + " GTQ " + houseBlend.precio());
+        
+        houseBlend = new CremaChantilli(houseBlend);
+        houseBlend = new Cocoa(houseBlend);
+        System.out.println(houseBlend.getDescripcion() + " GTQ " + houseBlend.precio());
+               
+        
+        Bebida expresso = new  Espresso();
+        System.out.println(expresso.getDescripcion() + " GTQ " + expresso.precio());    
+        
+        
     }
 
 }
